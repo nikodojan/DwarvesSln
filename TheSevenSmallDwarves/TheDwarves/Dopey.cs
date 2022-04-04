@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheSevenSmallDwarves.TheDwarves
 {
-    public class Grumpy : DwarfBase, IDwarf
+    internal class Dopey : DwarfBase, IDwarf
     {
         public void Appear()
         {
@@ -22,6 +22,5 @@ namespace TheSevenSmallDwarves.TheDwarves
         {
             throw new NotImplementedException();
         }
-        
     }
 }

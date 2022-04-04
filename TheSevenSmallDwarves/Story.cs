@@ -11,6 +11,8 @@ namespace TheSevenSmallDwarves
     {
         public List<IDwarf> Dwarves { get; set; }
 
+        public List<IDwarf> StoryList { get; set; }
+
         public Story()
         {
             Dwarves = new List<IDwarf>();
@@ -20,12 +22,23 @@ namespace TheSevenSmallDwarves
         private void CreateDwarves()
         {
             string ns = "TheSevenSmallDwarves.TheDwarves";
-            var d = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.IsClass && t.Namespace == ns);
+            var dwarfTypes = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.IsClass && t.Namespace == ns);
 
-            foreach (var type in d)
+            List<IDwarf> dwarves = new ();
+
+            foreach (var type in dwarfTypes)
             {
-                var dw = Activator.CreateInstance(type);
-                Dwarves.Add(dw as IDwarf);
+                var dwarf = Activator.CreateInstance(type);
+                dwarves.Add(dwarf as IDwarf);
+            }
+
+            Random rnd = new Random();
+
+            while (dwarves.Any())
+            {
+                var i = rnd.Next(0, dwarves.Count);
+                Dwarves.Add(dwarves[i]);
+                dwarves.RemoveAt(i);
             }
         }
     }
