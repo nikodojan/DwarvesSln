@@ -8,7 +8,7 @@ namespace TheSevenSmallDwarves.TheDwarves
 {
     internal class Sneezy : DwarfBase, IDwarf
     {
-        public void Appear()
+        public void Last()
         {
             throw new NotImplementedException();
         }

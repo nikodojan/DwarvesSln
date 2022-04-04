@@ -8,7 +8,7 @@ namespace TheSevenSmallDwarves
 {
     public interface IDwarf
     {
-        void Appear();
+        void Last();
         void CallNext();
         void Disappear();
     }

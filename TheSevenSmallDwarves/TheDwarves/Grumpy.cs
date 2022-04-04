@@ -8,7 +8,7 @@ namespace TheSevenSmallDwarves.TheDwarves
 {
     public class Grumpy : DwarfBase, IDwarf
     {
-        public void Appear()
+        public void Last()
         {
             throw new NotImplementedException();
         }
