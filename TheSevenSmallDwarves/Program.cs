@@ -11,10 +11,17 @@ Console.WriteLine("Hello, Dwarves!");
 for (int i = 0; i < 10; i++)
 {
     Story story = new Story();
-    story.Dwarves.ForEach(d => { Console.WriteLine(d.ToString()); });
+    story.Run();
     Console.WriteLine("++++++++++++++++++++++++++");
 }
-//story.Dwarves.ForEach(d=> { Console.WriteLine(d.ToString()); });
+
+//Story story = new Story();
+//story.Dwarves.ForEach(d =>
+//{
+//    d.Act();
+//});
+
+//story.Run();
 
 Console.WriteLine("The End!");
 Console.ReadKey();

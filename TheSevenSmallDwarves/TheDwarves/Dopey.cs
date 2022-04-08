@@ -6,21 +6,11 @@ using System.Threading.Tasks;
 
 namespace TheSevenSmallDwarves.TheDwarves
 {
-    internal class Dopey : DwarfBase, IDwarf
+    internal class Dopey : DwarfBase
     {
-        public void Last()
+        public override void Finish()
         {
-            throw new NotImplementedException();
-        }
-
-        public void CallNext()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Disappear()
-        {
-            throw new NotImplementedException();
+            Console.WriteLine($"Dopey starts fooling around with the others.");
         }
     }
 }

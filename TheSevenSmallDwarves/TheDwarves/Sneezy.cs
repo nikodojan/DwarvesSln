@@ -6,21 +6,11 @@ using System.Threading.Tasks;
 
 namespace TheSevenSmallDwarves.TheDwarves
 {
-    internal class Sneezy : DwarfBase, IDwarf
+    internal class Sneezy : DwarfBase
     {
-        public void Last()
+        public override void Finish()
         {
-            throw new NotImplementedException();
-        }
-
-        public void CallNext()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Disappear()
-        {
-            throw new NotImplementedException();
+            Console.WriteLine($"This whole story gives Sneezy a forceful allergy and he sneezes all over the other dwarves, who disperse in dusgust.");
         }
     }
 }

@@ -6,22 +6,12 @@ using System.Threading.Tasks;
 
 namespace TheSevenSmallDwarves.TheDwarves
 {
-    public class Grumpy : DwarfBase, IDwarf
+    public class Grumpy : DwarfBase
     {
-        public void Last()
+        public override void Finish()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"{this.GetType().Name} is last in list.");
         }
 
-        public void CallNext()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Disappear()
-        {
-            throw new NotImplementedException();
-        }
-        
     }
 }
