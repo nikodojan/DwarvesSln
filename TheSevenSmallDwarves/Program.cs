@@ -15,13 +15,6 @@ for (int i = 0; i < 10; i++)
     Console.WriteLine("++++++++++++++++++++++++++");
 }
 
-//Story story = new Story();
-//story.Dwarves.ForEach(d =>
-//{
-//    d.Act();
-//});
-
-//story.Run();
 
 Console.WriteLine("The End!");
 Console.ReadKey();

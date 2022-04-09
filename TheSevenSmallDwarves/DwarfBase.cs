@@ -23,22 +23,16 @@ namespace TheSevenSmallDwarves
             }
         }
 
-        public void React()
-        {
-            Console.WriteLine($"I am {this.GetType().Name}. I react on {Story.StoryFlow[Story.StoryFlow.IndexOf(this)+1].GetType().Name}");
-            CallNext();
+        public abstract void React();
 
-        }
-
-        public void CallNext(DwarfBase? next = null)
+        public void CallNext(string? text = null, DwarfBase? next = null)
         {
             if (next is null && Story.Dwarves.Any())
             {
                 Story.StoryFlow.Add(Story.Dwarves[0]);
                 Story.Dwarves.RemoveAt(0);
             }
-
-            Story.StoryFlow[Story.StoryFlow.IndexOf(this) + 1].Act();
+            Console.WriteLine(text);
         }
 
         public void SendAway(DwarfBase? dwarf = null)
@@ -48,7 +42,6 @@ namespace TheSevenSmallDwarves
         }
 
         public abstract void Finish();
-
 
         public override string ToString() => $"Hi, I'm {this.GetType().Name}";
     }

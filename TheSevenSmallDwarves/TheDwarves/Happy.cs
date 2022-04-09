@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheSevenSmallDwarves.TheDwarves
 {
-    internal class Sneezy : DwarfBase
+    public class Happy : DwarfBase
     {
         public override void React()
         {
@@ -14,32 +14,30 @@ namespace TheSevenSmallDwarves.TheDwarves
 
             switch (nextDwarf.GetType().Name)
             {
-                case nameof(Happy):
-                    //Console.WriteLine($"Switch: I am {this.GetType().Name}. I react on {nextDwarf.GetType().Name}");
-                    Console.WriteLine($"Sneezy turned around and sneezed.\r\n" +
-                                      $"Unluckily for Happy. He was in the way.");
-                    CallNext($"Next dwarf: {nextDwarf}");
+                case nameof(Sneezy):
+                    Console.WriteLine($"Switch: I am {this.GetType().Name}. I react on {nextDwarf.GetType().Name}");
+                    CallNext($"NEEEXT");
                     break;
                 case nameof(Grumpy):
                     //Console.WriteLine($"Switch: I am {this.GetType().Name}. I react on {nextDwarf.GetType().Name}");
-                    Console.WriteLine($"Sneezy couldn't hold it an sneezed at Grumpy.\r\n");
-                    CallNext($"Grumpy started cursing loudly while cleaning up himself.");
+                    Console.WriteLine($"Happy tries to make Grumpy a little less Grumpy by telling him a joke.\r\n");
+                    CallNext($"NEEEXT");
                     break;
                 case nameof(Dopey):
                     Console.WriteLine($"Switch: I am {this.GetType().Name}. I react on {nextDwarf.GetType().Name}");
-                    CallNext($"Next dwarf: {nextDwarf}");
+                    CallNext($"NEEEXT");
                     break;
                 default:
                     Console.WriteLine();
                     break;
             }
-            
             nextDwarf.Act();
         }
-
         public override void Finish()
         {
-            Console.WriteLine($"This whole story gives Sneezy a forceful allergy and he sneezes all over the other dwarves, who disperse in disgust.");
+            Console.WriteLine($"Happy starts dancing with his friends. Spreading happiness is his mission.");
         }
+
+
     }
 }

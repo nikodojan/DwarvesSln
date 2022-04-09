@@ -25,7 +25,6 @@ namespace TheSevenSmallDwarves
             StoryFlow[0].Act();
         }
 
-
         private void CreateDwarves()
         {
             string ns = "TheSevenSmallDwarves.TheDwarves";
