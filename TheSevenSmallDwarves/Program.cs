@@ -2,14 +2,15 @@
 
 using TheSevenSmallDwarves;
 
-Console.WriteLine("The Seven Small Dwarves");
-Console.WriteLine("++++++++++++++++++++++++++\r\n");
 
-for (int i = 0; i < 100; i++)
+for (int i = 0; i < 3; i++)
 {
+    Console.Clear();
+    Console.WriteLine("The Seven Small Dwarves");
+    Console.WriteLine("++++++++++++++++++++++++++\r\n");
     Story story = new Story();
     story.Run();
-    Console.WriteLine("++++++++++++++++++++++++++\r\n");
+    Thread.Sleep(5000);
 }
 
 Console.WriteLine("The End!");
