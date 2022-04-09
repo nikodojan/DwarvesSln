@@ -16,20 +16,20 @@ namespace TheSevenSmallDwarves.TheDwarves
             switch (nextDwarf.GetType().Name)
             {
                 case nameof(Happy):
-                    Console.WriteLine($"Switch: I am {this.GetType().Name}. I react on {nextDwarf.GetType().Name}");
-                    Console.WriteLine($"As Grumpy sees happy coming, he disappers.\r\n" +
-                                      $"No one can handle that much happiness");
+                    Console.WriteLine($"As Grumpy sees happy coming, he disappears.\r\n" +
+                                      $"No one can handle that much happiness.");
                     SendAway(this);
-                    CallNext($"Happy doesn't notice what just happened and is being happy.");
+                    Console.WriteLine($"Happy doesn't notice what just happened and is being happy.\r\n"); ;
+                    CallNext();
                     break;
                 case nameof(Sneezy):
-                    Console.WriteLine($"Switch: I am {this.GetType().Name}. I react on {nextDwarf.GetType().Name}");
-                    CallNext($"NEEEXT");
+                    Console.WriteLine($"Grumpy sees Sneezy sneeze. He hates it.");
+                    CallNext();
                     break;
                 case nameof(Dopey):
-                    //Console.WriteLine($"Switch: I am {this.GetType().Name}. I react on {nextDwarf.GetType().Name}");
-                    Console.WriteLine($"When Grumpy saw Dopey fooling around again, he gave him a headbutt.");
-                    CallNext($"NEEEXT");
+                    Console.WriteLine($"When Grumpy saw Dopey fooling around again, he gave him a headbutt.\r\n" +
+                                      $"Dopey starts crying out loud.");
+                    CallNext();
                     break;
                 default:
                     Console.WriteLine();
@@ -38,9 +38,10 @@ namespace TheSevenSmallDwarves.TheDwarves
             
             nextDwarf.Act();
         }
+
         public override void Finish()
         {
-            Console.WriteLine($"Grumpy got enough of the others and walks away mumbling in his beard.");
+            Console.WriteLine($"Grumpy got enough of the others and turns away mumbling in his beard.");
         }
 
     }

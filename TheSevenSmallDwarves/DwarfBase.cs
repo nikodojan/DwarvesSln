@@ -13,6 +13,7 @@ namespace TheSevenSmallDwarves
 
         public void Act()
         {
+            Console.WriteLine($"[{string.Join(", ", Story.StoryFlow)}]\r\n");
             if (IsLast)
             {
                 Finish();
@@ -35,14 +36,13 @@ namespace TheSevenSmallDwarves
             Console.WriteLine(text);
         }
 
-        public void SendAway(DwarfBase? dwarf = null)
+        public virtual void SendAway(DwarfBase dwarf)
         {
-            if (Story.StoryFlow.Contains(dwarf))
-                Story.StoryFlow.Remove(dwarf);
+            Story.StoryFlow.Remove(dwarf);
         }
 
         public abstract void Finish();
 
-        public override string ToString() => $"Hi, I'm {this.GetType().Name}";
+        public override string ToString() => this.GetType().Name;
     }
 }

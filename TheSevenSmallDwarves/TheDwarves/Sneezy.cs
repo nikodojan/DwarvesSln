@@ -15,19 +15,19 @@ namespace TheSevenSmallDwarves.TheDwarves
             switch (nextDwarf.GetType().Name)
             {
                 case nameof(Happy):
-                    //Console.WriteLine($"Switch: I am {this.GetType().Name}. I react on {nextDwarf.GetType().Name}");
                     Console.WriteLine($"Sneezy turned around and sneezed.\r\n" +
                                       $"Unluckily for Happy. He was in the way.");
-                    CallNext($"Next dwarf: {nextDwarf}");
+                    CallNext();
                     break;
                 case nameof(Grumpy):
-                    //Console.WriteLine($"Switch: I am {this.GetType().Name}. I react on {nextDwarf.GetType().Name}");
                     Console.WriteLine($"Sneezy couldn't hold it an sneezed at Grumpy.\r\n");
-                    CallNext($"Grumpy started cursing loudly while cleaning up himself.");
+                    Console.WriteLine($"Grumpy started cursing loudly while cleaning up himself."); ;
+                    CallNext();
                     break;
                 case nameof(Dopey):
-                    Console.WriteLine($"Switch: I am {this.GetType().Name}. I react on {nextDwarf.GetType().Name}");
-                    CallNext($"Next dwarf: {nextDwarf}");
+                    Console.WriteLine($"Sneezy sneezes on dopey.\r\n" +
+                                      $"Dopey finds it funny.");
+                    SendAway();
                     break;
                 default:
                     Console.WriteLine();
@@ -35,6 +35,24 @@ namespace TheSevenSmallDwarves.TheDwarves
             }
             
             nextDwarf.Act();
+        }
+
+        public override void SendAway(DwarfBase? dwarf = null)
+        {
+            DwarfBase nextDwarf = Story.StoryFlow[Story.StoryFlow.IndexOf(this) + 1];
+
+            int index = Story.StoryFlow.IndexOf(this) - 1;
+            if (index >= 0)
+            {
+                Console.WriteLine($"{Story.StoryFlow[index].GetType().Name} just shakes his head and goes away.");
+                CallNext();
+                Story.StoryFlow.RemoveAt(index);
+                
+            }
+            else
+            {
+                CallNext();
+            }
         }
 
         public override void Finish()
