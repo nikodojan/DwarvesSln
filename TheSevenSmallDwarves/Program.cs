@@ -5,7 +5,7 @@ using TheSevenSmallDwarves;
 Console.WriteLine("The Seven Small Dwarves");
 Console.WriteLine("++++++++++++++++++++++++++\r\n");
 
-for (int i = 0; i < 10; i++)
+for (int i = 0; i < 100; i++)
 {
     Story story = new Story();
     story.Run();

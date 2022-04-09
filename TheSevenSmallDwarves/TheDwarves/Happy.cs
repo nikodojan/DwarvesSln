@@ -25,8 +25,9 @@ namespace TheSevenSmallDwarves.TheDwarves
                     CallNext();
                     break;
                 case nameof(Dopey):
-                    Console.WriteLine($"Switch: I am {this.GetType().Name}. I react on {nextDwarf.GetType().Name}");
-                    CallNext($"NEEEXT");
+                    Console.WriteLine($"Happy and Dopey start fooling around.\r\n" +
+                                      $"Why not just have some fun?");
+                    SendAway();
                     break;
                 default:
                     Console.WriteLine();
@@ -35,9 +36,27 @@ namespace TheSevenSmallDwarves.TheDwarves
             nextDwarf.Act();
         }
 
+        public override void SendAway(DwarfBase? dwarf = null)
+        {
+            DwarfBase nextDwarf = Story.StoryFlow[Story.StoryFlow.IndexOf(this) + 1];
+
+            int index = Story.StoryFlow.IndexOf(this) - 1;
+            if (index >= 0)
+            {
+                Console.WriteLine($"{Story.StoryFlow[index].GetType().Name} is afraid of getting hurt and leaves to be save.");
+                CallNext();
+                Story.StoryFlow.RemoveAt(index);
+
+            }
+            else
+            {
+                CallNext();
+            }
+        }
+
         public override void Finish()
         {
-            Console.WriteLine($"Happy starts dancing with his friends. Spreading happiness is his mission.");
+            Console.WriteLine($"In the end Happy starts dancing with his friends. Spreading happiness is his mission.");
         }
 
 
